@@ -14,12 +14,14 @@ The current prototype supports an ISO extraction workflow with `dd.exe`.
 - Starts an ISO capture only after an explicit user action.
 - Prevents concurrent capture jobs.
 - Calculates SHA-256 after a successful extraction.
-- Creates a `<title>.iso.loadplay.json` sidecar manifest next to the image.
+- Creates a `metadata.json` manifest in the organized platform/title library folder.
 - Uses Electron context isolation with renderer-side Node access disabled.
 
 For compatible DVD system profiles, `chdman` can create a CHD play copy from the ISO master. For selected GameCube and Wii profiles, `dolphin-tool` can create an RVZ play copy. CD-based CHD conversion remains planned because preservation-quality CD support requires a BIN/CUE master rather than the current ISO workflow.
 
-## Quick Start
+## How To Use
+
+### Windows
 
 1. Install Node.js 20 or later and reopen your terminal.
 2. From the project root, install dependencies:
@@ -37,17 +39,36 @@ For compatible DVD system profiles, `chdman` can create a CHD play copy from the
 
 5. Insert a disc, select the detected drive, enter a title, select `ISO`, choose a destination, and start the capture.
 
+The app creates an ISO preservation master. For a compatible DVD profile, selecting `CHD` also creates a play copy with `chdman`. For a GameCube or Wii profile, selecting `RVZ` creates a play copy with `dolphin-tool`.
+
+### macOS
+
+macOS is not supported by the current capture implementation. The drive scanner uses Windows `Win32_CDROMDrive` and the capture command expects `dd.exe`, so the application cannot discover or image optical drives on macOS yet.
+
+You may install Node.js 20+ and run `npm install` to work on the interface or shared metadata, but do not use the current build for disc extraction. Native macOS drive discovery and a safe raw-device capture backend are planned work.
+
+### Linux
+
+Linux is not supported by the current capture implementation. The drive scanner uses Windows `Win32_CDROMDrive` and the capture command expects `dd.exe`, so the application cannot discover or image optical drives on Linux yet.
+
+You may install Node.js 20+ and run `npm install` to work on the interface or shared metadata, but do not use the current build for disc extraction. Linux drive discovery and a safe raw-device capture backend are planned work.
+
 ## Output
 
 A successful ISO capture produces an image and a manifest in the selected destination.
 
 ```text
 Library/
-  My Game.iso
-  My Game.iso.loadplay.json
+   Sony PlayStation 2/
+      My Game/
+         preservation/
+            My Game.iso
+         play/
+            My Game.chd
+         metadata.json
 ```
 
-The manifest records the sanitized title, output format and path, SHA-256 checksum, source-drive name, and completion time.
+`metadata.json` records the sanitized title, selected platform, preservation-master path and SHA-256 checksum, source-drive name, completion time, and any optional play copy.
 
 ## Format Strategy
 
