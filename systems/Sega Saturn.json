@@ -27,5 +27,7 @@
         ".cue", 
         ".chd", 
         ".ccd"
-    ]
+    ],
+    "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Accurate preservation needs a CD workflow that retains audio and data tracks." },
+    "detection": { "status": "planned", "method": "disc-signature", "signatures": ["SEGA SATURN disc header"] }
 }

@@ -33,5 +33,7 @@
         ".wia", 
         ".gcz", 
         ".nkit.iso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".iso"], "playFormats": [".rvz"], "captureBackend": "compatible-wii-hardware", "captureStatus": "planned", "hardwareNote": "Use compatible Wii hardware for verified disc dumping rather than a standard PC drive." },
+    "detection": { "status": "planned", "method": "disc-header", "signatures": ["Nintendo optical disc header"] }
 }

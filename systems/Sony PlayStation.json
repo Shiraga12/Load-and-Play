@@ -29,5 +29,7 @@
         ".cue", 
         ".chd", 
         ".iso"
-    ]
+	],
+	"preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a compatible optical drive for accurate multi-track CD reads." },
+	"detection": { "status": "implemented", "method": "filesystem-signature", "signatures": ["SYSTEM.CNF contains BOOT"] }
 }

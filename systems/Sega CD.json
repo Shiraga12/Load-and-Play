@@ -27,5 +27,7 @@
         ".cue", 
         ".chd", 
         ".iso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a multi-track CD workflow to preserve data and audio tracks." },
+    "detection": { "status": "planned", "method": "disc-signature", "signatures": ["SEGADISCSYSTEM disc header"] }
 }

@@ -28,5 +28,7 @@
         ".cue", 
         ".chd", 
         ".iso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a multi-track CD workflow to retain the original disc layout." },
+    "detection": { "status": "planned", "method": "disc-signature", "signatures": ["NEO-GEO CD disc signature"] }
 }

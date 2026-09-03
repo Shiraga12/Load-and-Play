@@ -28,5 +28,7 @@
         ".bin", 
         ".cue", 
         ".chd"
-    ]
+    ],
+    "preservation": { "masterFormats": [".bin", ".cue", ".iso"], "playFormats": [".chd", ".iso"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "CD titles require a multi-track BIN/CUE master; DVD titles can use an ISO master." },
+    "detection": { "status": "implemented", "method": "filesystem-signature", "signatures": ["SYSTEM.CNF contains BOOT2"] }
 }

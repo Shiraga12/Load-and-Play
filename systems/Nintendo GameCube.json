@@ -24,5 +24,7 @@
         ".gcz", 
         ".ciso", 
         ".nkit.iso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".iso"], "playFormats": [".rvz"], "captureBackend": "compatible-wii-hardware", "captureStatus": "planned", "hardwareNote": "Standard PC optical drives cannot reliably read GameCube discs; use compatible Wii hardware." },
+    "detection": { "status": "planned", "method": "disc-header", "signatures": ["Nintendo optical disc header"] }
 }

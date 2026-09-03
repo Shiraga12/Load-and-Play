@@ -27,5 +27,7 @@
         ".iso", 
         ".xiso", 
         ".cci"
-    ]
+    ],
+    "preservation": { "masterFormats": [".iso"], "playFormats": [".xiso", ".cci"], "captureBackend": "compatible-xbox-dvd-drive", "captureStatus": "planned", "hardwareNote": "Xbox discs require compatible drive hardware and platform-specific filesystem handling." },
+    "detection": { "status": "planned", "method": "filesystem-signature", "signatures": ["default.xbe"] }
 }

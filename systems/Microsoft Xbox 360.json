@@ -27,5 +27,7 @@
     "fileFormats": [
         ".iso", 
         ".xiso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".iso"], "playFormats": [".xiso"], "captureBackend": "compatible-xgd-drive", "captureStatus": "planned", "hardwareNote": "XGD media needs a compatible drive and specialized dumping workflow." },
+    "detection": { "status": "planned", "method": "filesystem-signature", "signatures": ["XGD filesystem"] }
 }

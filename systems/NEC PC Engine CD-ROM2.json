@@ -28,5 +28,7 @@
         ".cue", 
         ".chd", 
         ".iso"
-    ]
+    ],
+    "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a CD dumper that preserves multi-track layouts." },
+    "detection": { "status": "planned", "method": "disc-signature", "signatures": ["PC Engine CD system signature"] }
 }

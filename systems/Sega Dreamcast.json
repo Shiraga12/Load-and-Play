@@ -29,5 +29,7 @@
         ".cue", 
         ".chd", 
         ".cdi"
-    ]
+    ],
+    "preservation": { "masterFormats": [".gdi", ".bin"], "playFormats": [".chd"], "captureBackend": "specialized-dreamcast-dumper", "captureStatus": "planned", "hardwareNote": "GD-ROM preservation requires compatible specialized hardware and software." },
+    "detection": { "status": "planned", "method": "disc-signature", "signatures": ["SEGA SEGAKATANA disc header"] }
 }
