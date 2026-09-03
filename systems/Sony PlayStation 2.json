@@ -1,16 +1,32 @@
 {
     "name": "Sony PlayStation 2",
     "manufacturer": "Sony Computer Entertainment",
-    "shortName": "PS2",
+    "shortName": "ps2",
     "releaseDate": "2000-03-04",
     "generation": "Sixth generation",
     "type": "Home video game console",
-    "media": ["CD-ROM", "DVD-ROM"],
+    "media": [
+        "CD-ROM", 
+        "DVD-ROM"
+    ],
     "cpu": "Emotion Engine at 294.912 MHz",
     "memory": "32 MB RDRAM",
     "graphicsMemory": "4 MB eDRAM",
-    "controllers": ["DualShock 2"],
-    "notableGames": ["Shadow of the Colossus", "Metal Gear Solid 3: Snake Eater", "Gran Turismo 4", "Final Fantasy X", "God of War II"],
+    "controllers": [
+        "DualShock 2"
+    ],
+    "notableGames": [
+        "Shadow of the Colossus", 
+        "Metal Gear Solid 3: Snake Eater", 
+        "Gran Turismo 4", 
+        "Final Fantasy X", 
+        "God of War II"
+    ],
     "description": "Sony's second home console, supporting both CD-ROM and DVD-ROM game media.",
-    "fileFormats": [".iso", ".bin", ".cue", ".chd"]
+    "fileFormats": [
+        ".iso", 
+        ".bin", 
+        ".cue", 
+        ".chd"
+    ]
 }

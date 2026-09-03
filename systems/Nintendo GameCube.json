@@ -5,12 +5,24 @@
     "releaseDate": "2001-09-14",
     "generation": "Sixth generation",
     "type": "Home video game console",
-    "media": ["Nintendo GameCube Game Disc"],
+    "media": [
+        "Nintendo GameCube Game Disc"
+    ],
     "cpu": "IBM PowerPC Gekko at 485 MHz",
     "memory": "24 MB main RAM and 16 MB auxiliary RAM",
     "graphicsMemory": "3 MB embedded 1T-SRAM",
-    "controllers": ["Nintendo GameCube Controller", "Nintendo GameCube WaveBird Wireless Controller"],
-    "notableGames": ["The Legend of Zelda: The Wind Waker", "Metroid Prime", "Super Smash Bros. Melee", "Mario Kart: Double Dash!!",  "Resident Evil 4"],
+    "controllers": [
+        "Nintendo GameCube Controller", "Nintendo GameCube WaveBird Wireless Controller"
+    ],
+    "notableGames": [
+        "The Legend of Zelda: The Wind Waker", "Metroid Prime", "Super Smash Bros. Melee", "Mario Kart: Double Dash!!",  "Resident Evil 4"
+    ],
     "description": "Nintendo's compact optical-disc console, whose game images can be losslessly stored as RVZ for Dolphin.",
-    "fileFormats": [".rvz", ".iso", ".gcz", ".ciso", ".nkit.iso"]
+    "fileFormats": [
+        ".rvz", 
+        ".iso", 
+        ".gcz", 
+        ".ciso", 
+        ".nkit.iso"
+    ]
 }

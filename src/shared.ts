@@ -7,11 +7,26 @@ export interface OpticalDrive {
   mediaLoaded: boolean;
 }
 
+export interface SystemProfile {
+  name: string;
+  manufacturer: string;
+  shortName: string;
+  media: string[];
+  fileFormats: string[];
+  description: string;
+}
+
+export interface DiscProbe {
+  system: SystemProfile | null;
+  evidence: string;
+}
+
 export interface PreservationJob {
   drive: OpticalDrive;
   format: ImageFormat;
   destination: string;
   title: string;
+  system?: SystemProfile | null;
 }
 
 export interface ToolStatus {

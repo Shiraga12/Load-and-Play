@@ -5,12 +5,28 @@
     "releaseDate": "1988-12-04",
     "generation": "Fourth generation",
     "type": "Video game console add-on",
-    "media": ["CD-ROM"],
+    "media": [
+        "CD-ROM"
+    ],
     "cpu": "Hudson Soft HuC6280 at 7.16 MHz",
     "memory": "64 KB RAM",
     "graphicsMemory": "64 KB video RAM",
-    "controllers": ["PC Engine Controller", "PC Engine Avenue Pad 6"],
-    "notableGames": ["Castlevania: Rondo of Blood", "Ys Book I & II", "Gates of Thunder", "Lords of Thunder", "Dracula X"],
+    "controllers": [
+        "PC Engine Controller", 
+        "PC Engine Avenue Pad 6"
+    ],
+    "notableGames": [
+        "Castlevania: Rondo of Blood", 
+        "Ys Book I & II", 
+        "Gates of Thunder", 
+        "Lords of Thunder", 
+        "Dracula X"
+    ],
     "description": "The CD-ROM add-on for NEC's PC Engine, known internationally through the TurboGrafx-CD line.",
-    "fileFormats": [".bin", ".cue", ".chd", ".iso"]
+    "fileFormats": [
+        ".bin", 
+        ".cue", 
+        ".chd", 
+        ".iso"
+    ]
 }

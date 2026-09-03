@@ -5,12 +5,29 @@
     "releaseDate": "1998-11-27",
     "generation": "Sixth generation",
     "type": "Home video game console",
-    "media": ["GD-ROM"],
+    "media": [
+        "GD-ROM"
+    ],
     "cpu": "Hitachi SH-4 at 200 MHz",
     "memory": "16 MB RAM",
     "graphicsMemory": "8 MB video RAM",
-    "controllers": ["Dreamcast Controller", "Dreamcast Arcade Stick"],
-    "notableGames": ["Soulcalibur", "Jet Set Radio", "Crazy Taxi", "Shenmue", "Phantasy Star Online"],
+    "controllers": [
+        "Dreamcast Controller", 
+        "Dreamcast Arcade Stick"
+    ],
+    "notableGames": [
+        "Soulcalibur", 
+        "Jet Set Radio", 
+        "Crazy Taxi", 
+        "Shenmue", 
+        "Phantasy Star Online"
+    ],
     "description": "Sega's final home console, using the proprietary GD-ROM optical format that requires a specialized dumping workflow.",
-    "fileFormats": [".gdi", ".bin", ".cue", ".chd", ".cdi"]
+    "fileFormats": [
+        ".gdi", 
+        ".bin", 
+        ".cue", 
+        ".chd", 
+        ".cdi"
+    ]
 }

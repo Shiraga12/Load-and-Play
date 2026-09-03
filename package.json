@@ -19,7 +19,7 @@
   "build": {
     "appId": "com.loadandplay.preserve",
     "productName": "LOAD & PLAY",
-    "files": ["dist/**", "src/renderer/**", "package.json"],
+    "files": ["dist/**", "src/renderer/**", "systems/**", "package.json"],
     "win": { "target": "portable" }
   }
 }

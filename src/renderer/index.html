@@ -17,6 +17,8 @@
         <section class="panel workflow" aria-label="Create preservation image">
           <div class="panel-title"><h2>New capture</h2><button id="refresh" class="icon-button" title="Scan optical drives">&#8635;</button></div>
           <label>Optical drive<select id="drive"><option>Scanning connected drives...</option></select></label>
+          <label>System<select id="system"><option value="">Loading system profiles...</option></select></label>
+          <p id="probe">Waiting for a drive scan.</p>
           <label>Disc title<input id="title" value="untitled-disc" maxlength="100" /></label>
           <fieldset><legend>Archive format</legend><div class="formats"><label><input type="radio" name="format" value="iso" checked /><b>ISO</b><small>Raw image</small></label><label><input type="radio" name="format" value="chd" /><b>CHD</b><small>Compressed</small></label><label><input type="radio" name="format" value="rvz" /><b>RVZ</b><small>GameCube/Wii</small></label></div></fieldset>
           <div class="destination"><span><small>DESTINATION</small><strong id="destination">Choose a library folder</strong></span><button id="choose-folder" class="icon-button" title="Choose destination folder">&#128193;</button></div>

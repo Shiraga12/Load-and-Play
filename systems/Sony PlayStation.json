@@ -1,15 +1,21 @@
 {
 	"name": "Sony PlayStation",
 	"manufacturer": "Sony Computer Entertainment",
-    "shortName": "PSX",
+    "shortName": "psx",
 	"releaseDate": "1994-12-03",
 	"generation": "Fifth generation",
 	"type": "Home video game console",
-	"media": ["CD-ROM"],
+	"media": [
+        "CD-ROM"
+    ],
 	"cpu": "32-bit RISC R3000A-compatible processor at 33.8688 MHz",
 	"memory": "2 MB RAM",
 	"graphicsMemory": "1 MB VRAM",
-	"controllers": ["PlayStation Controller", "Dual Analog Controller", "DualShock"],
+	"controllers": [
+        "PlayStation Controller", 
+        "Dual Analog Controller", 
+        "DualShock"
+    ],
 	"notableGames": [
 		"Final Fantasy VII",
 		"Gran Turismo",
@@ -18,5 +24,10 @@
 		"Crash Bandicoot"
 	],
 	"description": "Sony's first home video game console, known for popularizing CD-based games and establishing the PlayStation brand.",
-	"fileFormats": [".bin", ".cue", ".chd", ".iso"]
+	"fileFormats": [
+        ".bin", 
+        ".cue", 
+        ".chd", 
+        ".iso"
+    ]
 }
