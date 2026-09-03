@@ -1,0 +1,16 @@
+{
+    "name": "Microsoft Xbox 360",
+    "manufacturer": "Microsoft",
+    "shortName": "xbox360",
+    "releaseDate": "2005-11-22",
+    "generation": "Seventh generation",
+    "type": "Home video game console",
+    "media": ["DVD-ROM", "DVD-DL"],
+    "cpu": "IBM PowerPC Xenon with three cores at 3.2 GHz",
+    "memory": "512 MB GDDR3 RAM",
+    "graphicsMemory": "10 MB embedded DRAM",
+    "controllers": ["Xbox 360 Controller", "Xbox 360 Wireless Controller"],
+    "notableGames": ["Halo 3", "Gears of War", "Forza Motorsport 4", "Lost Odyssey", "Red Dead Redemption"],
+    "description": "Microsoft's second console, using DVD-based game discs that require compatible drive hardware and specialized archival workflows.",
+    "fileFormats": [".iso", ".xiso"]
+}

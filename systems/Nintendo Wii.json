@@ -1,0 +1,16 @@
+{
+    "name": "Nintendo Wii",
+    "manufacturer": "Nintendo",
+    "shortName": "wii",
+    "releaseDate": "2006-11-19",
+    "generation": "Seventh generation",
+    "type": "Home video game console",
+    "media": ["Wii Optical Disc", "Nintendo GameCube Game Disc"],
+    "cpu": "IBM PowerPC Broadway at 729 MHz",
+    "memory": "24 MB main RAM and 64 MB external RAM",
+    "graphicsMemory": "3 MB embedded 1T-SRAM",
+    "controllers": ["Wii Remote", "Nunchuk", "Classic Controller", "Nintendo GameCube Controller"],
+    "notableGames": ["Super Mario Galaxy", "The Legend of Zelda: Twilight Princess", "Wii Sports", "Mario Kart Wii", "Xenoblade Chronicles"],
+    "description": "Nintendo's motion-controlled disc console, with compatible images suitable for lossless RVZ conversion.",
+    "fileFormats": [".rvz", ".iso", ".wbfs", ".wia", ".gcz", ".nkit.iso"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "load-and-play",
+  "version": "0.1.0",
+  "description": "Personal game disc preservation utility",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck",
+    "make": "npm run build && electron-builder --win portable"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2"
+  },
+  "build": {
+    "appId": "com.loadandplay.preserve",
+    "productName": "LOAD & PLAY",
+    "files": ["dist/**", "src/renderer/**", "package.json"],
+    "win": { "target": "portable" }
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOAD & PLAY</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand"><span class="mark">L&P</span><span>LOAD <i>&</i> PLAY</span></div>
+        <div id="drive-state" class="status"><span></span> Looking for drives</div>
+      </header>
+      <section class="workspace">
+        <div class="masthead"><p class="eyebrow">PERSONAL PRESERVATION STATION</p><h1>Archive the disc.<br />Keep the ritual.</h1><p>Read supported optical media to your local library with the tools you choose.</p></div>
+        <section class="panel workflow" aria-label="Create preservation image">
+          <div class="panel-title"><h2>New capture</h2><button id="refresh" class="icon-button" title="Scan optical drives">&#8635;</button></div>
+          <label>Optical drive<select id="drive"><option>Scanning connected drives...</option></select></label>
+          <label>Disc title<input id="title" value="untitled-disc" maxlength="100" /></label>
+          <fieldset><legend>Archive format</legend><div class="formats"><label><input type="radio" name="format" value="iso" checked /><b>ISO</b><small>Raw image</small></label><label><input type="radio" name="format" value="chd" /><b>CHD</b><small>Compressed</small></label><label><input type="radio" name="format" value="rvz" /><b>RVZ</b><small>GameCube/Wii</small></label></div></fieldset>
+          <div class="destination"><span><small>DESTINATION</small><strong id="destination">Choose a library folder</strong></span><button id="choose-folder" class="icon-button" title="Choose destination folder">&#128193;</button></div>
+          <button id="start" class="start">START CAPTURE <span>&rarr;</span></button>
+        </section>
+        <aside class="panel tools"><div class="panel-title"><h2>Tool bench</h2><button id="scan-tools" class="text-button">Rescan</button></div><p>Detected utilities are shown here. Installation and correct hardware remain your responsibility.</p><ul id="tool-list"><li>Scanning tools...</li></ul></aside>
+      </section>
+      <section class="activity"><div><p class="eyebrow">ACTIVITY</p><h2>Capture log</h2></div><pre id="log">Ready. Insert a disc, select a drive, and begin when your destination is set.</pre></section>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>

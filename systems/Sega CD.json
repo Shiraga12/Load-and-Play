@@ -1,0 +1,16 @@
+{
+    "name": "Sega CD",
+    "manufacturer": "Sega",
+    "shortName": "segacd",
+    "releaseDate": "1991-12-12",
+    "generation": "Fourth generation",
+    "type": "Video game console add-on",
+    "media": ["CD-ROM"],
+    "cpu": "Motorola 68000 at 12.5 MHz",
+    "memory": "512 KB program RAM and 256 KB word RAM",
+    "graphicsMemory": "128 KB PCM RAM",
+    "controllers": ["Sega Genesis Control Pad", "Sega 6-Button Control Pad"],
+    "notableGames": ["Sonic CD", "Lunar: The Silver Star", "Snatcher", "Shining Force CD", "Final Fight CD"],
+    "description": "An optical-disc add-on for the Sega Genesis/Mega Drive, best preserved with multi-track CD-aware formats.",
+    "fileFormats": [".bin", ".cue", ".chd", ".iso"]
+}

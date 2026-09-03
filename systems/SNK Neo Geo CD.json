@@ -1,0 +1,16 @@
+{
+    "name": "SNK Neo Geo CD",
+    "manufacturer": "SNK",
+    "shortName": "NGCD",
+    "releaseDate": "1994-09-09",
+    "generation": "Fifth generation",
+    "type": "Home video game console",
+    "media": ["CD-ROM"],
+    "cpu": "Motorola 68000 at 12 MHz",
+    "memory": "56 Mbit RAM",
+    "graphicsMemory": "2 MB video RAM",
+    "controllers": ["Neo Geo CD Pad", "Neo Geo CD Control Pad"],
+    "notableGames": ["The King of Fighters '98", "Metal Slug", "Samurai Shodown IV", "The Last Blade 2", "Fatal Fury Special"],
+    "description": "SNK's CD-based Neo Geo system, featuring CD-ROM releases of its arcade and home catalog.",
+    "fileFormats": [".bin", ".cue", ".chd", ".iso"]
+}

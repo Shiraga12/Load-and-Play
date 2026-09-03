@@ -1,0 +1,16 @@
+{
+    "name": "Microsoft Xbox",
+    "manufacturer": "Microsoft",
+    "shortName": "xbox",
+    "releaseDate": "2001-11-15",
+    "generation": "Sixth generation",
+    "type": "Home video game console",
+    "media": ["DVD-ROM"],
+    "cpu": "Intel Pentium III-derived processor at 733 MHz",
+    "memory": "64 MB DDR SDRAM",
+    "graphicsMemory": "Shared with system memory",
+    "controllers": ["Xbox Controller", "Xbox Controller S"],
+    "notableGames": ["Halo: Combat Evolved", "Jet Set Radio Future", "Ninja Gaiden Black", "Fable", "Forza Motorsport"],
+    "description": "Microsoft's first game console, using DVD-ROM media with platform-specific disc and filesystem handling.",
+    "fileFormats": [".iso", ".xiso", ".cci"]
+}
