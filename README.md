@@ -17,6 +17,7 @@ The current prototype supports an ISO extraction workflow with `dd.exe`.
 - Automatically gathers the readable volume label, filesystem, disc size, and PlayStation game ID/region when available.
 - Calculates SHA-256 after a successful extraction.
 - Creates a `metadata.json` manifest in the organized platform/title library folder.
+- Browses saved capture manifests from a selected library folder and re-verifies recorded image hashes on demand.
 - Uses Electron context isolation with renderer-side Node access disabled.
 
 For compatible DVD system profiles, `chdman` can create a CHD play copy from the ISO master. For selected GameCube and Wii profiles, `dolphin-tool` can create an RVZ play copy. CD-based CHD conversion remains planned because preservation-quality CD support requires a BIN/CUE master rather than the current ISO workflow.
@@ -88,6 +89,12 @@ Library/
 ```
 
 `metadata.json` records the sanitized title, selected platform, readable disc metadata, preservation-master path and SHA-256 checksum, source-drive name, completion time, and any optional play copy. Metadata that cannot be read from the disc remains `null`; the app does not invent missing values.
+
+## Verification And Library
+
+Choose **Choose library** at the bottom of the app and select the folder that contains your platform/title directories. LOAD & PLAY finds valid `metadata.json` records below that folder, filters them by title or system, and can recompute the checksum of each preservation master and optional play copy.
+
+Each verification updates the manifest with one of four local states: `verified`, `mismatch`, `missing`, or `unverified`. New captures begin as locally verified after their SHA-256 hash is recorded. The manifest also reserves an online-comparison status for a future preservation database integration; the current app does not submit hashes or claim external database verification.
 
 ## Format Strategy
 

@@ -5,7 +5,7 @@ import { createReadStream } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { promisify } from "node:util";
 import path from "node:path";
-import type { DiscMetadata, DiscProbe, GameMetadataLookup, ImageFormat, MetadataCredentials, MetadataProvider, OpticalDrive, PreservationJob, SystemProfile, ToolStatus } from "./shared";
+import type { DiscMetadata, DiscProbe, GameMetadataLookup, ImageFormat, LibraryItem, LibraryVerificationResult, MetadataCredentials, MetadataProvider, OpticalDrive, PreservationJob, SystemProfile, ToolStatus, VerificationStatus } from "./shared";
 
 const execFileAsync = promisify(execFile);
 let mainWindow: BrowserWindow | null = null;
@@ -240,6 +240,15 @@ interface PlayCopy {
   sha256: string;
 }
 
+interface LibraryRecord {
+  title?: string;
+  platform?: string;
+  completedAt?: string;
+  preservation?: { format?: string; imagePath?: string; sha256?: string };
+  playCopy?: { imagePath?: string; sha256?: string } | null;
+  verification?: { local?: VerificationStatus; verifiedAt?: string; online?: "not-configured" | "pending" };
+}
+
 async function runTool(command: string, args: string[], label: string): Promise<void> {
   mainWindow?.webContents.send("job:output", `${label}...`);
   await new Promise<void>((resolve, reject) => {
@@ -280,6 +289,70 @@ async function sha256(filePath: string): Promise<string> {
   return hash.digest("hex");
 }
 
+async function findManifests(root: string): Promise<string[]> {
+  const entries = await readdir(root, { withFileTypes: true });
+  const nested = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(root, entry.name);
+    if (entry.isDirectory()) return findManifests(entryPath);
+    return entry.isFile() && entry.name === "metadata.json" ? [entryPath] : [];
+  }));
+  return nested.flat();
+}
+
+function recordToLibraryItem(manifestPath: string, record: LibraryRecord): LibraryItem | null {
+  if (!record.title || !record.platform || !record.preservation?.imagePath) return null;
+  return {
+    manifestPath,
+    title: record.title,
+    platform: record.platform,
+    capturedAt: record.completedAt ?? null,
+    format: record.preservation.format ?? "ISO",
+    localStatus: record.verification?.local ?? "unverified",
+    onlineStatus: record.verification?.online ?? "not-configured"
+  };
+}
+
+async function listLibrary(root: string): Promise<LibraryItem[]> {
+  try {
+    const manifests = await findManifests(root);
+    const records = await Promise.all(manifests.map(async (manifestPath) => {
+      try {
+        return recordToLibraryItem(manifestPath, JSON.parse(await readFile(manifestPath, "utf8")) as LibraryRecord);
+      } catch {
+        return null;
+      }
+    }));
+    return records.filter((record): record is LibraryItem => record !== null).sort((left, right) => left.title.localeCompare(right.title));
+  } catch {
+    return [];
+  }
+}
+
+async function verifyImage(imagePath: string | undefined, expectedHash: string | undefined): Promise<VerificationStatus> {
+  if (!imagePath) return "missing";
+  if (!expectedHash) return "unverified";
+  try {
+    return (await sha256(imagePath)).toLowerCase() === expectedHash.toLowerCase() ? "verified" : "mismatch";
+  } catch {
+    return "missing";
+  }
+}
+
+async function verifyLibraryItem(root: string, manifestPath: string): Promise<LibraryVerificationResult> {
+  const resolvedRoot = path.resolve(root);
+  const resolvedManifest = path.resolve(manifestPath);
+  if (!resolvedManifest.startsWith(`${resolvedRoot}${path.sep}`) || path.basename(resolvedManifest) !== "metadata.json") throw new Error("The selected record is outside the selected library.");
+  const record = JSON.parse(await readFile(resolvedManifest, "utf8")) as LibraryRecord;
+  const preservationStatus = await verifyImage(record.preservation?.imagePath, record.preservation?.sha256);
+  const playStatus = record.playCopy ? await verifyImage(record.playCopy.imagePath, record.playCopy.sha256) : "verified";
+  const status = [preservationStatus, playStatus].includes("mismatch") ? "mismatch" : [preservationStatus, playStatus].includes("missing") ? "missing" : [preservationStatus, playStatus].includes("unverified") ? "unverified" : "verified";
+  const verifiedAt = new Date().toISOString();
+  record.verification = { local: status, verifiedAt, online: "not-configured" };
+  await writeFile(resolvedManifest, `${JSON.stringify(record, null, 2)}\n`, "utf8");
+  const message = status === "verified" ? "All recorded images match their SHA-256 checksums." : status === "mismatch" ? "At least one image does not match its recorded SHA-256 checksum." : status === "missing" ? "At least one recorded image could not be found." : "At least one image has no recorded checksum.";
+  return { manifestPath: resolvedManifest, status, message, verifiedAt };
+}
+
 async function saveLibraryRecord(job: PreservationJob, output: string, playCopy: PlayCopy | null): Promise<void> {
   const paths = capturePathsFor(job);
   const record = {
@@ -289,6 +362,7 @@ async function saveLibraryRecord(job: PreservationJob, output: string, playCopy:
     disc: job.metadata ?? emptyDiscMetadata(),
     preservation: { format: "iso", imagePath: output, sha256: await sha256(output) },
     playCopy,
+    verification: { local: "verified", verifiedAt: new Date().toISOString(), online: "not-configured" },
     sourceDrive: job.drive.name,
     completedAt: new Date().toISOString()
   };
@@ -319,6 +393,11 @@ app.whenReady().then(() => {
   ipcMain.handle("destination:choose", async () => {
     const result = await dialog.showOpenDialog(mainWindow!, { properties: ["openDirectory", "createDirectory"] });
     return result.canceled ? null : result.filePaths[0];
+  });
+  ipcMain.handle("library:list", (_event, root: unknown) => typeof root === "string" ? listLibrary(root) : []);
+  ipcMain.handle("library:verify", (_event, root: unknown, manifestPath: unknown) => {
+    if (typeof root !== "string" || typeof manifestPath !== "string") throw new Error("A library folder and record are required.");
+    return verifyLibraryItem(root, manifestPath);
   });
   ipcMain.handle("job:start", async (_event, job: PreservationJob) => {
     if (captureInProgress) return { started: false, message: "A capture is already running." };

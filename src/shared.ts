@@ -83,3 +83,22 @@ export interface JobResult {
   started: boolean;
   message: string;
 }
+
+export type VerificationStatus = "verified" | "mismatch" | "missing" | "unverified";
+
+export interface LibraryItem {
+  manifestPath: string;
+  title: string;
+  platform: string;
+  capturedAt: string | null;
+  format: string;
+  localStatus: VerificationStatus;
+  onlineStatus: "not-configured" | "pending";
+}
+
+export interface LibraryVerificationResult {
+  manifestPath: string;
+  status: VerificationStatus;
+  message: string;
+  verifiedAt: string;
+}
