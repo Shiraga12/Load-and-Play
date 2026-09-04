@@ -1,0 +1,18 @@
+{
+  "name": "Sony PlayStation 3",
+  "manufacturer": "Sony Computer Entertainment",
+  "shortName": "ps3",
+  "releaseDate": "2006-11-11",
+  "generation": "Seventh generation",
+  "type": "Home video game console",
+  "media": ["Blu-ray Disc", "DVD-ROM", "CD-ROM"],
+  "cpu": "Cell Broadband Engine at 3.2 GHz",
+  "memory": "256 MB XDR RAM",
+  "graphicsMemory": "256 MB GDDR3 VRAM",
+  "controllers": ["SIXAXIS", "DualShock 3", "PlayStation Move"],
+  "notableGames": ["The Last of Us", "Metal Gear Solid 4: Guns of the Patriots", "Demon's Souls", "Uncharted 2: Among Thieves", "LittleBigPlanet"],
+  "description": "Sony's Blu-ray-based seventh-generation console, with game discs that need specialized preservation handling.",
+  "fileFormats": [".iso", ".ird"],
+  "preservation": { "masterFormats": [".iso"], "playFormats": [".iso"], "captureBackend": "compatible-playstation-3-hardware", "captureStatus": "planned", "hardwareNote": "Blu-ray game discs require compatible hardware and a platform-specific dumping workflow." },
+  "detection": { "status": "planned", "method": "filesystem-signature", "signatures": ["PS3_DISC.SFB"] }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "NEC PC-FX",
+  "manufacturer": "NEC Home Electronics",
+  "shortName": "pcfx",
+  "releaseDate": "1994-12-23",
+  "generation": "Fifth generation",
+  "type": "Home video game console",
+  "media": ["CD-ROM"],
+  "cpu": "NEC HuC62320 at 21.477 MHz",
+  "memory": "2 MB RAM",
+  "graphicsMemory": "1 MB video RAM",
+  "controllers": ["PC-FX Pad", "PC-FX Mouse"],
+  "notableGames": ["Chip Chan Kick!", "Team Innocent", "Kishin Douji Zenki: Vajra Fight", "Der Langrisser FX", "Pia Carrot e Youkoso!!"],
+  "description": "NEC's CD-ROM console successor to the PC Engine, released exclusively in Japan.",
+  "fileFormats": [".bin", ".cue", ".chd", ".iso"],
+  "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a multi-track CD workflow to retain the complete disc layout." },
+  "detection": { "status": "planned", "method": "disc-signature", "signatures": ["PC-FX disc header"] }
+}

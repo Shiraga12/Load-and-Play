@@ -20,6 +20,7 @@
           <label>System<select id="system"><option value="">Loading system profiles...</option></select></label>
           <p id="probe">Waiting for a drive scan.</p>
           <label>Disc title<input id="title" value="untitled-disc" maxlength="100" /></label>
+          <div class="metadata-lookup"><label>Metadata provider<select id="metadata-provider"><option value="screenscraper">ScreenScraper</option><option value="launchbox">LaunchBox</option><option value="mobygames" selected>MobyGames</option><option value="steamgriddb">SteamGridDB</option></select></label><div id="metadata-credentials"></div><button id="lookup-metadata" class="text-button" type="button">Find game metadata</button><p id="metadata-status" aria-live="polite"></p><ul id="metadata-results"></ul></div>
           <fieldset><legend>Archive format</legend><div class="formats"><label><input type="radio" name="format" value="iso" checked /><b>ISO</b><small>Raw image</small></label><label><input type="radio" name="format" value="chd" /><b>CHD</b><small>Compressed</small></label><label><input type="radio" name="format" value="rvz" /><b>RVZ</b><small>GameCube/Wii</small></label></div></fieldset>
           <div class="destination"><span><small>DESTINATION</small><strong id="destination">Choose a library folder</strong></span><button id="choose-folder" class="icon-button" title="Choose destination folder">&#128193;</button></div>
           <button id="start" class="start">START CAPTURE <span>&rarr;</span></button>

@@ -1,0 +1,18 @@
+{
+    "name": "Microsoft Xbox One",
+    "manufacturer": "Microsoft",
+    "shortName": "xboxone",
+    "releaseDate": "2013-11-22",
+    "generation": "Eighth generation",
+    "type": "Home video game console",
+    "media": ["Blu-ray Disc"],
+    "cpu": "AMD Jaguar with eight cores at 1.75 GHz",
+    "memory": "8 GB DDR3 RAM",
+    "graphicsMemory": "32 MB embedded SRAM",
+    "controllers": ["Xbox One Wireless Controller", "Xbox Adaptive Controller"],
+    "notableGames": ["Forza Horizon 4", "Halo 5: Guardians", "Ori and the Will of the Wisps", "Sunset Overdrive", "Sea of Thieves"],
+    "description": "Microsoft's eighth-generation console, using Blu-ray game discs with platform-specific filesystem and security requirements.",
+    "fileFormats": [".iso"],
+    "preservation": { "masterFormats": [".iso"], "playFormats": [".iso"], "captureBackend": "specialized-xbox-one-dumper",  "captureStatus": "planned", "hardwareNote": "Xbox One discs require specialized hardware and software; generic PC drives are not  sufficient." },
+    "detection": { "status": "planned", "method": "filesystem-signature", "signatures": ["Xbox One game-disc filesystem"] }
+}

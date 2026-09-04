@@ -1,7 +1,7 @@
 {
     "name": "NEC PC Engine CD-ROM2",
     "manufacturer": "NEC Home Electronics",
-    "shortName": "PCE-CD",
+    "shortName": "pcenginecd",
     "releaseDate": "1988-12-04",
     "generation": "Fourth generation",
     "type": "Video game console add-on",

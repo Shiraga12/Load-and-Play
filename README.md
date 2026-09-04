@@ -1,4 +1,5 @@
 # LOAD & PLAY
+Project Leader: Toluwani D. Adeoti
 
 LOAD & PLAY is an open-source Windows desktop utility for making personal archival images from physical game discs. It detects local optical drives, runs an explicitly selected imaging tool, hashes the finished image, and records the capture in a local library manifest.
 
@@ -13,6 +14,7 @@ The current prototype supports an ISO extraction workflow with `dd.exe`.
 - Detects compatible tools available on `PATH`.
 - Starts an ISO capture only after an explicit user action.
 - Prevents concurrent capture jobs.
+- Automatically gathers the readable volume label, filesystem, disc size, and PlayStation game ID/region when available.
 - Calculates SHA-256 after a successful extraction.
 - Creates a `metadata.json` manifest in the organized platform/title library folder.
 - Uses Electron context isolation with renderer-side Node access disabled.
@@ -37,9 +39,26 @@ For compatible DVD system profiles, `chdman` can create a CHD play copy from the
    npm start
    ```
 
-5. Insert a disc, select the detected drive, enter a title, select `ISO`, choose a destination, and start the capture.
+5. Insert a disc and select the detected drive. LOAD & PLAY gathers readable local metadata and prefills an untouched title from the disc label.
+6. Review the detected system and title. Select a metadata provider, enter its credentials in the app, and choose **Find game metadata** to search.
+7. Select `ISO`, choose a destination, and start the capture.
 
 The app creates an ISO preservation master. For a compatible DVD profile, selecting `CHD` also creates a play copy with `chdman`. For a GameCube or Wii profile, selecting `RVZ` creates a play copy with `dolphin-tool`.
+
+## Metadata Providers
+
+LOAD & PLAY always gathers local, readable disc data first. External lookups are optional and only enrich the title after you select a matching result. Credentials entered in the app are used for the current lookup only and are never written to manifests, logs, or project files.
+
+| Provider | Status | Configuration |
+| --- | --- | --- |
+| ScreenScraper | Available with account and developer credentials | Account username/password and developer ID/password |
+| LaunchBox | Available with a configured API endpoint | API URL and API key |
+| MobyGames | Available through ScraperAPI | ScraperAPI key |
+| SteamGridDB | Available | SteamGridDB API key |
+
+For unattended development, MobyGames and SteamGridDB can also read `SCRAPERAPI_KEY` and `STEAMGRIDDB_API_KEY` from the environment when the app form is left blank.
+
+When a result is selected, its provider, external ID, title, and source URL are saved in `metadata.json` alongside the local disc metadata.
 
 ### macOS
 
@@ -68,7 +87,7 @@ Library/
          metadata.json
 ```
 
-`metadata.json` records the sanitized title, selected platform, preservation-master path and SHA-256 checksum, source-drive name, completion time, and any optional play copy.
+`metadata.json` records the sanitized title, selected platform, readable disc metadata, preservation-master path and SHA-256 checksum, source-drive name, completion time, and any optional play copy. Metadata that cannot be read from the disc remains `null`; the app does not invent missing values.
 
 ## Format Strategy
 
@@ -100,6 +119,10 @@ Tool detection is not a promise that a particular drive can read a given disc. T
 ## Hardware And Legal Limits
 
 Use LOAD & PLAY only to archive media you are legally entitled to preserve. Do not commit game images or other copyrighted game content to this repository.
+
+### Anti-Piracy Notice
+
+LOAD & PLAY is intended only for personal preservation of games and discs you legally own. It must not be used to download, distribute, share, sell, or otherwise facilitate access to unauthorized copies of copyrighted games or disc images. The project does not endorse or support piracy, circumvention of copy protection, or use with media you are not legally entitled to preserve.
 
 Consumer optical drives cannot necessarily read every game-disc format. GameCube and Wii media require specialized workflows, Dreamcast GD-ROMs require compatible dumping hardware, and Xbox/Xbox 360 discs may require specific compatible drives and tools. LOAD & PLAY does not bypass copy protection or claim to create verified images from unsupported hardware.
 

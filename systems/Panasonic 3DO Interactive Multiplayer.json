@@ -1,0 +1,18 @@
+{
+  "name": "Panasonic 3DO Interactive Multiplayer",
+  "manufacturer": "The 3DO Company",
+  "shortName": "3do",
+  "releaseDate": "1993-10-04",
+  "generation": "Fifth generation",
+  "type": "Home video game console",
+  "media": ["CD-ROM"],
+  "cpu": "ARM60 RISC processor at 12.5 MHz",
+  "memory": "2 MB DRAM",
+  "graphicsMemory": "1 MB VRAM",
+  "controllers": ["3DO Control Pad", "3DO Flightstick Pro"],
+  "notableGames": ["The Need for Speed", "Star Control II", "Gex", "Road Rash", "Return Fire"],
+  "description": "A CD-ROM game platform licensed to multiple hardware manufacturers, including Panasonic, GoldStar, and Sanyo.",
+  "fileFormats": [".bin", ".cue", ".chd", ".iso"],
+  "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a multi-track CD workflow to retain the complete disc layout." },
+  "detection": { "status": "planned", "method": "disc-signature", "signatures": ["3DO disc header"] }
+}

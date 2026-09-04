@@ -1,0 +1,18 @@
+{
+  "name": "Nintendo Wii U",
+  "manufacturer": "Nintendo",
+  "shortName": "wiiu",
+  "releaseDate": "2012-11-18",
+  "generation": "Eighth generation",
+  "type": "Home video game console",
+  "media": ["Wii U Optical Disc", "Wii Optical Disc"],
+  "cpu": "IBM PowerPC Espresso with three cores at 1.24 GHz",
+  "memory": "2 GB DDR3 RAM",
+  "graphicsMemory": "32 MB embedded DRAM",
+  "controllers": ["Wii U GamePad", "Wii Remote", "Wii U Pro Controller"],
+  "notableGames": ["The Legend of Zelda: The Wind Waker HD", "Super Mario 3D World", "Mario Kart 8", "Xenoblade Chronicles X", "Bayonetta 2"],
+  "description": "Nintendo's HD console with proprietary optical media and backward compatibility for Wii discs.",
+  "fileFormats": [".wud", ".wux", ".wua", ".iso"],
+  "preservation": { "masterFormats": [".wud"], "playFormats": [".wua"], "captureBackend": "compatible-wii-u-hardware", "captureStatus": "planned", "hardwareNote": "Wii U discs require compatible console hardware and a specialized dumping workflow." },
+  "detection": { "status": "planned", "method": "disc-header", "signatures": ["Wii U optical disc header"] }
+}

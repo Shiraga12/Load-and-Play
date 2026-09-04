@@ -1,0 +1,18 @@
+{
+  "name": "Philips CD-i",
+  "manufacturer": "Philips",
+  "shortName": "cdi",
+  "releaseDate": "1991-12-03",
+  "generation": "Fourth generation",
+  "type": "Interactive multimedia player",
+  "media": ["CD-ROM"],
+  "cpu": "Philips SCC68070 at 15.5 MHz",
+  "memory": "1 MB RAM",
+  "graphicsMemory": "Shared with system memory",
+  "controllers": ["CD-i Remote Controller", "CD-i Gamepad", "CD-i Mouse"],
+  "notableGames": ["The 7th Guest", "Hotel Mario", "Burn:Cycle", "Tetris", "Inca"],
+  "description": "Philips' CD-based interactive multimedia system with a library of games and educational software.",
+  "fileFormats": [".bin", ".cue", ".chd", ".iso"],
+  "preservation": { "masterFormats": [".bin", ".cue"], "playFormats": [".chd"], "captureBackend": "redumper", "captureStatus": "planned", "hardwareNote": "Use a multi-track CD workflow to retain the complete disc layout." },
+  "detection": { "status": "planned", "method": "disc-signature", "signatures": ["CD-RTOS filesystem signature"] }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Sony PlayStation 4",
+  "manufacturer": "Sony Computer Entertainment",
+  "shortName": "ps4",
+  "releaseDate": "2013-11-15",
+  "generation": "Eighth generation",
+  "type": "Home video game console",
+  "media": ["Blu-ray Disc"],
+  "cpu": "AMD Jaguar with eight cores at 1.6 GHz",
+  "memory": "8 GB GDDR5 RAM",
+  "graphicsMemory": "Shared with system memory",
+  "controllers": ["DualShock 4"],
+  "notableGames": ["Bloodborne", "God of War", "Marvel's Spider-Man", "Horizon Zero Dawn", "The Last of Us Part II"],
+  "description": "Sony's eighth-generation console, using Blu-ray game discs and platform-specific preservation workflows.",
+  "fileFormats": [".iso"],
+  "preservation": { "masterFormats": [".iso"], "playFormats": [".iso"], "captureBackend": "specialized-playstation-4-dumper", "captureStatus": "planned", "hardwareNote": "PlayStation 4 discs require specialized hardware and software; generic PC drives are not sufficient." },
+  "detection": { "status": "planned", "method": "filesystem-signature", "signatures": ["PS4 game-disc filesystem"] }
+}
